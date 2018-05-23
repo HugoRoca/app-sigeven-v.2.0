@@ -1,0 +1,19 @@
+{
+  "name": "course_of_php7_poo_mysql_jquery_ajax",
+  "version": "1.0.0",
+  "description": "Course of php, mysql, jquery, ajax",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HugoRoca/Course_of_PHP7_POO_MySQL_JQuery_Ajax.git"
+  },
+  "author": "Hugo Roca - hugo.rock20@hotmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HugoRoca/Course_of_PHP7_POO_MySQL_JQuery_Ajax/issues"
+  },
+  "homepage": "https://github.com/HugoRoca/Course_of_PHP7_POO_MySQL_JQuery_Ajax#readme"
+}
