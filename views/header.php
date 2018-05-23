@@ -5,11 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminLTE 2 | Starter</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="../public/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../public/css/font-awesome.css">
-  <link rel="stylesheet" href="../public/Ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="../public/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="../public/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/font-awesome.css">
+  <link rel="stylesheet" href="../assets/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../assets/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../assets/css/skins/skin-blue.min.css">
 
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -47,7 +47,7 @@
                 <ul class="menu">
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../public/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="../assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -110,12 +110,12 @@
           </li>
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../public/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="../assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">Alexander Pierce</span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
-                <img src="../public/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="../assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
                   Alexander Pierce - Web Developer
@@ -156,7 +156,7 @@
     <section class="sidebar">
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../public/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="../assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>

@@ -6,8 +6,8 @@
     </footer>
     <div class="control-sidebar-bg"></div>
     </div>
-    <script src="../public/js/jquery.min.js"></script>
-    <script src="../public/js/bootstrap.min.js"></script>
-    <script src="../public/js/adminlte.min.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/adminlte.min.js"></script>
 </body>
 </html>
