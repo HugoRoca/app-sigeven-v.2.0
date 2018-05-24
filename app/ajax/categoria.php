@@ -12,25 +12,25 @@ switch ($_GET["op"]) {
     case 'guardaryeditar':
         if (empty($idcategoria)) {
             $rspta = $categoria->insertar($idcategoria, $nombre, $descripcion);
-            echo $rspta = "Categoría registrada" : "Categoría no se pudo registrar";
+            echo $rspta ? "Categoría registrada" : "Categoría no se pudo registrar";
         }else{
             $rspta = $categoria->editar($nombre, $descripcion);
-            echo $rspta = "Categoría actualizada" : "Categoría no se pudo actualizar";
+            echo $rspta ? "Categoría actualizada" : "Categoría no se pudo actualizar";
         }
         break;
-    case 'desactivar'
+    case 'desactivar':
         $rspta = $categoria->desactivar($idcategoria);
         echo $rspta ? "Categoría desactivada" : "Categoría no se pudo desactivar";
         break;
-    case 'activar'
+    case 'activar':
         $rspta = $categoria->activar($idcategoria);
         echo $rspta ? "Categoría activada" : "Categoría no se pudo activar";
         break;
-    case 'mostrar'
+    case 'mostrar':
         $rspta = $categoria->mostrar($idcategoria);
         echo json_encode($rspta);
         break;
-    case 'listrar'
+    case 'listar':
         $rspta = $categoria->listar();
         $data = Array();
 
@@ -52,9 +52,6 @@ switch ($_GET["op"]) {
 
         echo json_encode($results);
 
-        break;
-    default:
-        # code...
         break;
 }
 
