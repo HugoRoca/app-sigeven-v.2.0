@@ -11,10 +11,10 @@ $descripcion = isset($_POST["descripcion"]) ? limpiarCadena($_POST["descripcion"
 switch ($_GET["op"]) {
     case 'guardaryeditar':
         if (empty($idcategoria)) {
-            $rspta = $categoria->insertar($idcategoria, $nombre, $descripcion);
+            $rspta = $categoria->insertar($nombre, $descripcion);
             echo $rspta ? "Categoría registrada" : "Categoría no se pudo registrar";
         }else{
-            $rspta = $categoria->editar($nombre, $descripcion);
+            $rspta = $categoria->editar($idcategoria, $nombre, $descripcion);
             echo $rspta ? "Categoría actualizada" : "Categoría no se pudo actualizar";
         }
         break;

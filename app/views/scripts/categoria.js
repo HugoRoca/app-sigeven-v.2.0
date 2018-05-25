@@ -4,6 +4,11 @@ var tabla;
 function init() {
     mostrarForm(false);
     listar();
+
+    $("#formulario").on("submit",function(e)
+	{
+		guardarEditar(e);	
+	})
 }
 
 //función limpiar
@@ -56,6 +61,28 @@ function listar() {
         'iDesplayLength': 5, //paginación
         'order': [[0, 'desc']] //ordenar (columns, orden)
     }).DataTable();
+}
+
+function guardarEditar(e) {
+    e.preventDefault(); //No se activará la acción predeterminado del evento
+    $('#btnGuardar').prop('disabled', true);
+    var formData = new FormData($('#formulario')[0]);
+
+    $.ajax({
+        url: '../ajax/categoria.php?op=guardaryeditar',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(datos){
+            bootbox.alert(datos);
+            mostrarForm(false);
+            tabla.ajax.reload();
+        }
+    });
+
+    limpiar();
+
 }
 
 init();
