@@ -51,11 +51,10 @@ function listar() {
             dataType: 'json',
             error: function e() {
                 console.log(e.responseText);
-            },
+            }},
         'bDestroy': true,
         'iDesplayLength': 5, //paginación
         'order': [[0, 'desc']] //ordenar (columns, orden)
-        }
     }).DataTable();
 }
 
