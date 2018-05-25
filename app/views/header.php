@@ -11,6 +11,12 @@
   <link rel="stylesheet" href="../assets/css/AdminLTE.min.css">
   <link rel="stylesheet" href="../assets/css/skins/skin-blue.min.css">
 
+  <!--DATATABLES-->
+  <link rel="stylesheet" href="../assets/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="../assets/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" href="../assets/css/responsive.dataTables.min.css">
+
+
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
