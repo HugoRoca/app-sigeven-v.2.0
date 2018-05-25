@@ -82,7 +82,18 @@ function guardarEditar(e) {
     });
 
     limpiar();
+}
 
+function mostrar(idcategoria) {
+    $.post('../ajax/categoria.php?op=mostrar', {idcategoria: idcategoria}, function(data){
+        data= JSON.parse(data);
+        mostrarForm(true);
+
+        $('#idcategoria').val(data.idcategoria);
+        $('#nombre').val(data.nombre);
+        $('#descripcion').val(data.descripcion);
+
+    });
 }
 
 init();
