@@ -110,6 +110,8 @@ function mostrar(idarticulo) {
         $('#imagenactual').val(data.imagen);
         $('#idarticulo').val(data.idarticulo);
 
+        generarBarCode();
+
     });
 }
 
@@ -135,6 +137,11 @@ function activar(idarticulo) {
             });
         }
     });
+}
+
+function generarBarCode() {
+    codigo = $('#codigo').val();
+    JsBarcode('#barCode', codigo);
 }
 
 init();
