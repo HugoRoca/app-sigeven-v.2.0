@@ -26,9 +26,11 @@ function mostrarForm(flag) {
         $('#listadoRegistros').hide();
         $('#formularioRegistros').show();
         $('#btnGuardar').prop('disabled', false);
+        $('#btnAgregar').hide();
     }else{
         $('#listadoRegistros').show();
         $('#formularioRegistros').hide();
+        $('#btnAgregar').show();
     }
 }
 

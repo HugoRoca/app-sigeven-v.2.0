@@ -26,6 +26,8 @@ function limpiar() {
     $("#imagenmuestra").attr("src","");
     $("#imagenactual").val("");
     $("#imagen").val("");
+    $('#print').hide();
+    $('#idarticulo').val('');
 }
 
 //función mostrar formulario
@@ -36,9 +38,11 @@ function mostrarForm(flag) {
         $('#listadoRegistros').hide();
         $('#formularioRegistros').show();
         $('#btnGuardar').prop('disabled', false);
+        $('#btnAgregar').hide();
     }else{
         $('#listadoRegistros').show();
         $('#formularioRegistros').hide();
+        $('#btnAgregar').show();
     }
 }
 
@@ -142,6 +146,7 @@ function activar(idarticulo) {
 function generarBarCode() {
     codigo = $('#codigo').val();
     JsBarcode('#barCode', codigo);
+    $('#print').show();
 }
 
 function imprimir() {

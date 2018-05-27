@@ -15,7 +15,7 @@
                     <div class="box-header with-border">
                         <h1 class="box-title">
                             Categoría
-                            <button class="btn btn-success" onclick="mostrarForm(true)"><i class="fa fa-plus-circle"></i> Agregar</button>
+                            <button id="btnAgregar" class="btn btn-success" onclick="mostrarForm(true)"><i class="fa fa-plus-circle"></i> Agregar</button>
                         </h1>
                         <div class="box-tools pull-right">
                         </div>
