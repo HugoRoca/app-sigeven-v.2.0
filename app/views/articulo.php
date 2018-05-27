@@ -73,10 +73,11 @@
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Código:</label>
                                 <input type="text" class="form-control" name="codigo" id="codigo" placeholder="Código de Barras">
-                                <button class="btn btn-success" type="button" onclick="generarBarCode()"><i class="fa fa-refersh"></i> Generar</button>
-                                <div>
+                                <button class="btn btn-success" type="button" onclick="generarBarCode()"><i class="fa fa-refresh"></i> Generar</button>
+                                <div id="print">
                                     <svg id="barCode"></svg>
                                 </div>
+                                <button class="btn btn-info" type="button" onclick="imprimir()"><i class="fa fa-print"></i> Imprimir</button>
                             </div>
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
@@ -95,6 +96,6 @@
 <?php
     require 'footer.php';
 ?>
-
 <script src="../assets/js/JsBarcode.all.min.js"></script>
+<script src="../assets/js/jquery.PrintArea.js"></script>
 <script src="scripts/articulo.js"></script>

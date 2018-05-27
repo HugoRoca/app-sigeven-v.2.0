@@ -144,4 +144,8 @@ function generarBarCode() {
     JsBarcode('#barCode', codigo);
 }
 
+function imprimir() {
+    $('#print').printArea();
+}
+
 init();
