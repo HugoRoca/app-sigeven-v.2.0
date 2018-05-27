@@ -19,5 +19,6 @@
     <script src="../assets/js/vfs_fonts.js"></script>
 
     <script src="../assets/js/bootbox.min.js"></script>
+    <script src="../assets/js/bootstrap-select.min.js"></script>
 </body>
 </html>
