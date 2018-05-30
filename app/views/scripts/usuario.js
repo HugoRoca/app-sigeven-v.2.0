@@ -10,6 +10,10 @@ function init() {
     });
 
     $('#imagenmuestra').hide();
+
+    $.post('../ajax/usuario.php?op=permisos&id=', function(r){
+        $('#permisos').html(r);
+    });
 }
 
 //función limpiar
@@ -111,9 +115,14 @@ function mostrar(idusuario) {
         $('#cargo').val(data.cargo);
         $('#login').val(data.login);
         $('#clave').val(data.clave);
-        $("#imagenactual").show();
+        $("#imagenmuestra").show();
         $("#imagenmuestra").attr('src', '../Files/Usuarios/' + data.imagen);
+        $('#imagenactual').val(data.imagen);
         $('#idusuario').val(data.idusuario);
+    });
+
+    $.post('../ajax/usuario.php?op=permisos&id=' + idusuario, function(r){
+        $('#permisos').html(r);
     });
 }
 
