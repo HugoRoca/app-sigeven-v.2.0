@@ -1,8 +1,8 @@
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-        Anything you want
+        Sistema de Ventas
         </div>
-        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2018 <a href="#">Hugo Roca</a>.</strong> All rights reserved.
     </footer>
     <div class="control-sidebar-bg"></div>
     </div>
