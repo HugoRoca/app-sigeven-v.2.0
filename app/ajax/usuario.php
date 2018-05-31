@@ -107,6 +107,27 @@ switch ($_GET["op"]) {
             echo '<li><input type="checkbox" '.$sw.' name="permiso[]" value="'.$reg->idpermiso.'"> '.$reg->nombre.'</li>';
         }
         break;
+    case 'verificar':
+        $logina = $_POST['logina'];
+        $clavea = $_POST['clavea'];
+
+        $claveHash = hash("SHA256", $clavea);
+
+        $rspta = $usuario->verificar($logina, $claveHash);
+
+        $fetch = $rspta->fetch_object();
+
+        if (isset($fetch)) {
+            ///Declaración de variables de session
+            $_SESSION['idusuario'] = $fetch->idusuario;
+            $_SESSION['nombre'] = $fetch->nombre;
+            $_SESSION['imagen'] = $fetch->imagen;
+            $_SESSION['login'] = $fetch->login;
+        }
+
+        echo json_encode($fetch);
+
+        break;
 }
 
 ?>
