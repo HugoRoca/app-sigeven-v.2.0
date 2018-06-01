@@ -10,7 +10,7 @@ if (!isset($_SESSION["nombre"])) {
 require 'header.php';
 
 if ($_SESSION["almacen"] == 1) {
-    # code...
+
 ?>
 <div class="content-wrapper">
     <section class="content-header">

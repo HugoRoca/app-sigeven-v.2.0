@@ -8,6 +8,8 @@ if (!isset($_SESSION["nombre"])) {
 }else{
 
 require 'header.php';
+
+if ($_SESSION["acceso"] == 1) {
 ?>
 <div class="content-wrapper">
     <section class="content-header">
@@ -46,6 +48,10 @@ require 'header.php';
     </section>
 </div>
 <?php
+}
+else{
+    require 'noacceso.php';
+}
     require 'footer.php';
 ?>
 
