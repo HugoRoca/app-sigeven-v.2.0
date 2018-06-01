@@ -1,5 +1,13 @@
 <?php
-    require 'header.php';
+//Activamos el alamacenamiento en el buffer
+ob_start();
+session_start();
+
+if (!isset($_SESSION["nombre"])) {
+    header("Location: login.html");
+}else{
+
+require 'header.php';
 ?>
 <div class="content-wrapper">
     <section class="content-header">
@@ -42,3 +50,9 @@
 ?>
 
 <script src="scripts/permiso.js"></script>
+<?php
+}
+
+ob_end_flush();
+
+?>
