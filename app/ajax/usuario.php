@@ -149,6 +149,15 @@ switch ($_GET["op"]) {
         echo json_encode($fetch);
 
         break;
+
+    case 'salir':
+        //Limpiamos las variables de sesion
+        session_start();
+        //Destruimos la session
+        session_destroy();
+        //Redireccionamos al login
+        header('Location: ../index.php');
+        break;
 }
 
 ?>
