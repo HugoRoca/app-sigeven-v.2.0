@@ -101,7 +101,7 @@ if ($_SESSION["compras"] == 1) {
                                 <table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
                                     <thead style="background-color: #A9D0F5">
                                         <th>Opciones</th>
-                                        <th>Artículos</th>
+                                        <th>Artículo</th>
                                         <th>Cantidad</th>
                                         <th>Precio Compra</th>
                                         <th>Precio Venta</th>
