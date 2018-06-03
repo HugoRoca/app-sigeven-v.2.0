@@ -8,6 +8,13 @@ function init() {
     $("#formulario").on("submit",function(e){
 		guardarEditar(e);	
     });
+
+    //Cargamos los items al select proveedor
+    $.post('../ajax/ingreso.php?op=selectProveedor', function(r){
+        $('#idproveedor').html(r);
+        $('#idproveedor').selectpicker('refresh');
+        console.log(r);
+    });
 }
 
 //función limpiar

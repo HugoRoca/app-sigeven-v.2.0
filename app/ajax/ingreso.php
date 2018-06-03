@@ -62,6 +62,17 @@ switch ($_GET["op"]) {
         echo json_encode($results);
 
         break;
+    case 'selectProveedor':
+        require_once '../models/Persona.php';
+        $persona = new Persona();
+
+        $rspt = $persona->listarP();
+        
+        while ($reg = $rspt->fetch_object()) {
+            echo '<option value='.$reg->idpersona.'>'.$reg->nombre.'</option>';
+        }
+
+        break;
 }
 
 ?>
