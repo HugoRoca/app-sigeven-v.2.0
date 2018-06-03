@@ -72,6 +72,7 @@ if ($_SESSION["compras"] == 1) {
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Tipo Comprobante(*):</label>
                                 <select name="tipo_comprobante" id="tipo_comprobante" class="form-control selectpicker" required>
+                                    <option value="">--Seleccione--</option>
                                     <option value="Boleta">Boleta</option>
                                     <option value="Factura">Factura</option>
                                     <option value="Ticket">Ticket</option>

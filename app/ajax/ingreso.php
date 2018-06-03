@@ -67,10 +67,14 @@ switch ($_GET["op"]) {
         $persona = new Persona();
 
         $rspt = $persona->listarP();
+
+        $result = '';
         
         while ($reg = $rspt->fetch_object()) {
-            echo '<option value='.$reg->idpersona.'>'.$reg->nombre.'</option>';
+            $result = '<option value='.$reg->idpersona.'>'.$reg->nombre.'</option>' . $result;
         }
+
+        echo '<option value="">--Seleccione--</option>' . $result;
 
         break;
     case 'listarActiculos':
