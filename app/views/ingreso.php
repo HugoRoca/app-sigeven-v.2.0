@@ -135,6 +135,40 @@ if ($_SESSION["compras"] == 1) {
         </div>
     </section>
 </div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Seleccione un Artículo</h4>
+            </div>
+            <div class="modal-body">
+                <table id="tblArticulos" class="table table-striped table-bordered table-condensed table-hover">
+                    <thead>
+                        <th>Opciones</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Código</th>
+                        <th>Stock</th>
+                        <th>Imagen</th>
+                    </thead>
+                    <tfoot>
+                        <th>Opciones</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Código</th>
+                        <th>Stock</th>
+                        <th>Imagen</th>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" type="button" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
 <?php
 }
 else{
