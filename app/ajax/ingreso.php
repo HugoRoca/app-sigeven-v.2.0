@@ -2,6 +2,10 @@
 
 require_once '../models/Ingreso.php';
 
+if (strlen(session_id()) < 1) {
+    session_start();
+}
+
 $ingreso = new Ingreso();
 
 $idingreso = isset($_POST["idingreso"]) ? limpiarCadena($_POST["idingreso"]) : "";
@@ -13,8 +17,6 @@ $num_comprobante = isset($_POST["num_comprobante"]) ? limpiarCadena($_POST["num_
 $fecha_hora = isset($_POST["fecha_hora"]) ? limpiarCadena($_POST["fecha_hora"]) : "";
 $impuesto = isset($_POST["impuesto"]) ? limpiarCadena($_POST["impuesto"]) : "";
 $total_compra = isset($_POST["total_compra"]) ? limpiarCadena($_POST["total_compra"]) : "";
-
-$idproveedor, $idusuario, $tipo_comprobante, $serie_comprobante, $num_comprobante, $fecha_hora, $impuesto, $total_compra, $idarticulo, $cantidad, $precio_compra, $precio_venta
 
 switch ($_GET["op"]) {
     case 'guardaryeditar':
@@ -37,7 +39,7 @@ switch ($_GET["op"]) {
 
         while ($reg = $rspta->fetch_object()) {
             $data[] = array(
-                "0"=>($reg->estad0 == 'Aceptado') ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idingreso.')"><i class="fa fa-pencil"></i></button> '.
+                "0"=>($reg->estado == 'Aceptado') ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idingreso.')"><i class="fa fa-pencil"></i></button> '.
                     '<button class="btn btn-danger" onclick="anular('.$reg->idingreso.')"><i class="fa fa-close"></i></button>' : 
                     '<button class="btn btn-warning" onclick="mostrar('.$reg->idingreso.')"><i class="fa fa-pencil"></i></button>',
                 "1"=>$reg->fecha,
