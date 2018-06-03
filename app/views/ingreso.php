@@ -79,15 +79,15 @@ if ($_SESSION["compras"] == 1) {
                             </div>
                             <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
                                 <label>Serie(*):</label>
-                                <input type="date" class="form-control" name="serie_comprobante" id="serie_comprobante" autocomplete="off" required maxlength="7" placeholder="Serie">
+                                <input type="text" class="form-control" name="serie_comprobante" id="serie_comprobante" autocomplete="off" required maxlength="7" placeholder="Serie">
                             </div>
                             <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
                                 <label>Número(*):</label>
-                                <input type="date" class="form-control" name="num_comprobante" id="num_comprobante" autocomplete="off" required maxlength="10" placeholder="Número">
+                                <input type="text" class="form-control" name="num_comprobante" id="num_comprobante" autocomplete="off" required maxlength="10" placeholder="Número">
                             </div>
                             <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
                                 <label>Impuesto(*):</label>
-                                <input type="date" class="form-control" name="impuesto" id="impuesto" autocomplete="off" required maxlength="10" placeholder="Impuesto">
+                                <input type="text" class="form-control" name="impuesto" id="impuesto" autocomplete="off" required maxlength="10" placeholder="Impuesto">
                             </div>
 
                             <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
