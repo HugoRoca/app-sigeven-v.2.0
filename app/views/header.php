@@ -33,7 +33,7 @@ if (strlen(session_id()) < 1) {
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="skin-blue layout-boxed sidebar-mini" style="height: auto; min-height: 100%;">
 <div class="wrapper">
   <header class="main-header">
 
@@ -69,9 +69,6 @@ if (strlen(session_id()) < 1) {
                 </div>
               </li>
             </ul>
-          </li>
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
         </ul>
       </div>
