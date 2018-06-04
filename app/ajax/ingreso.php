@@ -38,8 +38,9 @@ switch ($_GET["op"]) {
 		$id=$_GET['id'];
 
 		$rspta = $ingreso->listarDetalle($id);
-		$total=0;
-		echo '<thead style="background-color:#A9D0F5">
+        $total=0;
+        $result = '';
+		$result = '<thead style="background-color:#A9D0F5">
                                     <th>Opciones</th>
                                     <th>Artículo</th>
                                     <th>Cantidad</th>
@@ -50,10 +51,10 @@ switch ($_GET["op"]) {
 
 		while ($reg = $rspta->fetch_object())
 				{
-					echo '<tr class="filas"><td></td><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->precio_compra.'</td><td>'.$reg->precio_venta.'</td><td>'.$reg->precio_compra*$reg->cantidad.'</td></tr>';
+					$result = $result . '<tr class="filas"><td></td><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->precio_compra.'</td><td>'.$reg->precio_venta.'</td><td>'.$reg->precio_compra*$reg->cantidad.'</td></tr>';
 					$total=$total+($reg->precio_compra*$reg->cantidad);
 				}
-		echo '<tfoot>
+		$result = $result . '<tfoot>
                 <th>TOTAL</th>
                 <th></th>
                 <th></th>
@@ -61,6 +62,8 @@ switch ($_GET["op"]) {
                 <th></th>
                 <th><h4 id="total">S/.'.$total.'</h4><input type="hidden" name="total_compra" id="total_compra"></th> 
             </tfoot>';
+
+        echo $result;
 
         break;
     case 'listar':

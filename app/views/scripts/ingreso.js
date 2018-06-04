@@ -19,14 +19,26 @@ function init() {
 //función limpiar
 function limpiar() {
     $('#idproveedor').val('');
+    $("#idproveedor").selectpicker('refresh');
     $('#proveedor').val('');
     $('#serie_comprobante').val('');
     $('#num_comprobante').val('');
     $('#fecha_hora').val('');
+    
     $('#impuesto').val('');
     $('#total_compra').val('');
     $('.filas').remove();
     $('#total').val(0);
+
+    var now = new Date();
+    var day = ('0' + now.getDate()).slice(-2);
+    var month = ('0' + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear() + '-' + (month) + '-' + (day);
+    $('#fecha_hora').val(today);
+
+    //Marcamos el primer tipo_documento
+    $('#tipo_comprobante').val('');
+	$('#tipo_comprobante').selectpicker('refresh');
 }
 
 //función mostrar formulario
@@ -36,12 +48,12 @@ function mostrarForm(flag) {
     if (flag) {
         $('#listadoRegistros').hide();
         $('#formularioRegistros').show();
-        $('#btnGuardar').prop('disabled', false);
+        //$('#btnGuardar').prop('disabled', false);
         $('#btnAgregar').hide();
         listarActiculos();
-        $('#guardar').hide();
-        $('#btnGuadar').show();
+        $('#btnGuardar').hide();
         $('#btnCancelar').show();
+        detalle = 0;
         $('#btnAgregaArt').show();
     }else{
         $('#listadoRegistros').show();
@@ -113,7 +125,8 @@ function guardarEditar(e) {
         contentType: false,
         processData: false,
         success: function(datos){
-            bootbox.alert(datos);
+            alert(datos);
+            //bootbox.alert(datos);
             mostrarForm(false);
             listar();
         }
@@ -137,16 +150,15 @@ function mostrar(idingreso) {
         $('#impuesto').val(data.impuesto);
         $('#idingreso').val(data.idingreso);
 
-        $('#guardar').show();
         $('#btnGuardar').hide();
         $('#btnCancelar').show();
         $('#btnAgregaArt').hide();
+        
+        $.post('../ajax/ingreso.php?op=listarDetalle&id=' + idingreso, function(r){
+            $('#detalles').html(r);
+        });
     });
 
-    $.post('../ajax/ingreso.php?op=listarDetalle&id=' + idingreso, function(r){
-        $('#detalles').html(r);
-        console.log(r);
-    });
 }
 
 //Funcion para anular registros
@@ -166,7 +178,7 @@ var impuesto = 18;
 var cont = 0;
 var detalle = 0;
 
-$('#guardar').hide();
+$('#btnGuardar').hide();
 $('#tipo_comprobante').change(marcarImpuesto);
 
 function marcarImpuesto(){
@@ -236,9 +248,9 @@ function calcularTotales(){
 
 function evaluar() {
     if (detalle > 0) {
-        $('#guardar').show();
+        $('#btnGuardar').show();
     }else{
-        $('#guardar').hide();
+        $('#btnGuardar').hide();
         cont = 0;
     }
 }
