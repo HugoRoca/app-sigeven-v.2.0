@@ -10,7 +10,7 @@ if (strlen(session_id()) < 1) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SIGEVEN | Sistema de control de ventas</title>
+  <title>SIGEVEN 2.0 | Sistema de control de ventas</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="../assets/css/font-awesome.css">
@@ -39,8 +39,8 @@ if (strlen(session_id()) < 1) {
 
     <!-- Logo -->
     <a href="index2.html" class="logo">
-      <span class="logo-mini"><b>A</b>LT</span>
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-mini"><b>SGV</b>2</span>
+      <span class="logo-lg"><b>SIGEVEN </b>2.0</span>
     </a>
 
     <!-- Header Navbar -->

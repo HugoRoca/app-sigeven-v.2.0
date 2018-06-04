@@ -6,13 +6,15 @@ function init() {
     listar();
 
     $("#formulario").on("submit",function(e){
-		guardarEditar(e);	
+        guardarEditar(e);	
     });
 
     //Cargamos los items al select proveedor
     $.post('../ajax/ingreso.php?op=selectProveedor', function(r){
         $('#idproveedor').html(r);
         $('#idproveedor').selectpicker('refresh');
+        $('#idproveedorMostrar').html(r);
+        $('#idproveedorMostrar').selectpicker('refresh');
     });
 }
 
@@ -38,16 +40,17 @@ function limpiar() {
 
     //Marcamos el primer tipo_documento
     $('#tipo_comprobante').val('');
-	$('#tipo_comprobante').selectpicker('refresh');
+    $('#tipo_comprobante').selectpicker('refresh');
 }
 
 //función mostrar formulario
-function mostrarForm(flag) {
+function mostrarForm(flag, nuevo) {
     limpiar();
 
     if (flag) {
         $('#listadoRegistros').hide();
         $('#formularioRegistros').show();
+        $('#formularioMostrar').hide();
         //$('#btnGuardar').prop('disabled', false);
         $('#btnAgregar').hide();
         listarActiculos();
@@ -58,6 +61,7 @@ function mostrarForm(flag) {
     }else{
         $('#listadoRegistros').show();
         $('#formularioRegistros').hide();
+        $('#formularioMostrar').hide();
         $('#btnAgregar').show();
     }
 }
@@ -88,7 +92,7 @@ function listar() {
                 console.log(e.responseText);
             }},
         'bDestroy': true,
-        'iDisplayLength': 5, //paginación
+        'iDisplayLength': 10, //paginación
         'order': [[0, 'desc']] //ordenar (columns, orden)
     }).DataTable();
 }
@@ -116,6 +120,8 @@ function listarActiculos() {
 function guardarEditar(e) {
     e.preventDefault(); //No se activará la acción predeterminado del evento
     //$('#btnGuardar').prop('disabled', true);
+    modificarSubtotales();
+
     var formData = new FormData($('#formulario')[0]);
 
     $.ajax({
@@ -136,29 +142,25 @@ function guardarEditar(e) {
 }
 
 function mostrar(idingreso) {
+    $('#formularioMostrar').show();
+    $('#listadoRegistros').hide();
     $.post('../ajax/ingreso.php?op=mostrar', {idingreso: idingreso}, function(data){
-        data= JSON.parse(data);
-        mostrarForm(true);
-
-        $('#idproveedor').val(data.idproveedor);
-        $('#idproveedor').selectpicker('refresh');
-        $('#tipo_comprobante').val(data.tipo_comprobante);
-        $('#tipo_comprobante').selectpicker('refresh');
-        $('#serie_comprobante').val(data.serie_comprobante);
-        $('#num_comprobante').val(data.num_comprobante);
-        $('#fecha_hora').val(data.fecha);
-        $('#impuesto').val(data.impuesto);
-        $('#idingreso').val(data.idingreso);
-
-        $('#btnGuardar').hide();
-        $('#btnCancelar').show();
-        $('#btnAgregaArt').hide();
+        data = JSON.parse(data);
+        //mostrarForm(true);
+        $('#idproveedorMostrar').val(data.idproveedor);
+        $('#idproveedorMostrar').selectpicker('refresh');
+        $('#tipo_comprobanteMostrar').val(data.tipo_comprobante);
+        $('#tipo_comprobanteMostrar').selectpicker('refresh');
+        $('#serie_comprobanteMostrar').val(data.serie_comprobante);
+        $('#num_comprobanteMostrar').val(data.num_comprobante);
+        $('#fecha_horaMostrar').val(data.fecha);
+        $('#impuestoMostrar').val(data.impuesto);
+        $('#idingresoMostrar').val(data.idingreso);
         
         $.post('../ajax/ingreso.php?op=listarDetalle&id=' + idingreso, function(r){
-            $('#detalles').html(r);
+            $('#detallesMostrar').html(r);
         });
     });
-
 }
 
 //Funcion para anular registros
@@ -201,10 +203,10 @@ function agregarDetalle(idarticulo, articulo){
         var fila = '<tr class="filas" id="fila' + cont + '">' +
                         '<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ')">X</button></td>' +
                         '<td><input type="hidden" name="idarticulo[]" value="' + idarticulo + '">' + articulo + '</td>' +
-                        '<td><input type="number" name="cantidad[]" id="cantidad[]" value="' + cantidad + '"></td>' +
-                        '<td><input type="number" name="precio_compra[]" id="precio_compra[]" value="' + precio_compra + '"></td>' +
-                        '<td><input type="number" name="precio_venta[]" id="precio_venta[]" value="' + precio_venta + '"></td>' +
-                        '<td><span name="subtotal" id="subtotal' + cont + '">' + subtotal + '</span></td>' +
+                        '<td><input type="number" autocomplete="off" class="form-control text-center" name="cantidad[]" id="cantidad[]" value="' + cantidad + '"></td>' +
+                        '<td><input type="text" autocomplete="off" class="form-control text-right" name="precio_compra[]" id="precio_compra[]" value="' + precio_compra + '"></td>' +
+                        '<td><input type="text" autocomplete="off" class="form-control text-right" name="precio_venta[]" id="precio_venta[]" value="' + precio_venta + '"></td>' +
+                        '<td><h5 class="text-right" name="subtotal" id="subtotal' + cont + '">' + subtotal + '</h5></td>' +
                         '<td><button type="button" onclick="modificarSubtotales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>'
                     '</tr>';
         cont++;

@@ -57,6 +57,65 @@ if ($_SESSION["compras"] == 1) {
                         </table>
                     </div>
 
+                    <div class="panel-body" id="formularioMostrar">
+                        <form>
+                            <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <label>Proveedor(*):</label>
+                                <select name="idproveedorMostrar" id="idproveedorMostrar" class="form-control selectpicker" disabled></select>
+                            </div>
+                            <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <label>Fecha(*):</label>
+                                <input type="date" class="form-control" name="fecha_horaMostrar" id="fecha_horaMostrar" disabled>
+                            </div>
+
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label>Tipo Comprobante(*):</label>
+                                <select name="tipo_comprobanteMostrar" id="tipo_comprobanteMostrar" class="form-control selectpicker" disabled>
+                                    <option value="">--Seleccione--</option>
+                                    <option value="Boleta">Boleta</option>
+                                    <option value="Factura">Factura</option>
+                                    <option value="Ticket">Ticket</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                <label>Serie(*):</label>
+                                <input type="text" class="form-control" name="serie_comprobanteMostrar" id="serie_comprobanteMostrar" disabled>
+                            </div>
+                            <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                <label>Número(*):</label>
+                                <input type="text" class="form-control" name="num_comprobanteMostrar" id="num_comprobanteMostrar" disabled>
+                            </div>
+                            <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                <label>Impuesto(*):</label>
+                                <input type="text" class="form-control" name="impuestoMostrar" id="impuestoMostrar" disabled>
+                            </div>
+                            <div id="tableMostrar" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <table id="detallesMostrar" class="table table-striped table-bordered table-condensed table-hover">
+                                    <thead style="background-color: #A9D0F5">
+                                        <th>Artículo</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio Compra</th>
+                                        <th>Precio Venta</th>
+                                        <th>Subtotal</th>
+                                    </thead>
+                                    <tfoot>
+                                        <th>Total</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tfoot>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <button class="btn btn-danger" onclick="cancelarForm()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+
                     <div class="panel-body" id="formularioRegistros">
                         <form name="formulario" id="formulario" method="POST">
                             <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -98,15 +157,15 @@ if ($_SESSION["compras"] == 1) {
                                     </button>
                                 </a>
                             </div>
-                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div id="tableInsertar" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
                                     <thead style="background-color: #A9D0F5">
                                         <th>Opciones</th>
-                                        <th>Artículo</th>
-                                        <th>Cantidad</th>
-                                        <th>Precio Compra</th>
-                                        <th>Precio Venta</th>
-                                        <th>Subtotal</th>
+                                        <th class="text-center">Artículo</th>
+                                        <th class="text-center">Cantidad</th>
+                                        <th class="text-center">Precio Compra</th>
+                                        <th class="text-center">Precio Venta</th>
+                                        <th class="text-center">Subtotal</th>
                                     </thead>
                                     <tfoot>
                                         <th>Total</th>
@@ -124,7 +183,6 @@ if ($_SESSION["compras"] == 1) {
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
-
                                 <button class="btn btn-danger" onclick="cancelarForm()" type="button" id="btnCancelar"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
                             </div>
                         </form>
