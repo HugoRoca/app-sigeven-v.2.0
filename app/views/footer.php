@@ -20,5 +20,6 @@
 
     <script src="../assets/js/bootbox.min.js"></script>
     <script src="../assets/js/bootstrap-select.min.js"></script>
+    <script src="scripts/utils.js"></script>
 </body>
 </html>

@@ -31,6 +31,7 @@ function limpiar() {
     $('#total_compra').val('');
     $('.filas').remove();
     $('#total').val(0);
+    $('#total_compra').val(0);
 
     var now = new Date();
     var day = ('0' + now.getDate()).slice(-2);
@@ -201,11 +202,11 @@ function agregarDetalle(idarticulo, articulo){
     if(idarticulo != ''){
         var subtotal = cantidad * precio_compra;
         var fila = '<tr class="filas" id="fila' + cont + '">' +
-                        '<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ')">X</button></td>' +
+                        '<td><button type="button" class="btn btn-danger btn-block" onclick="eliminarDetalle(' + cont + ')"><i class="fa fa-trash"></i></button></td>' +
                         '<td><input type="hidden" name="idarticulo[]" value="' + idarticulo + '">' + articulo + '</td>' +
                         '<td><input type="number" autocomplete="off" class="form-control text-center" name="cantidad[]" id="cantidad[]" value="' + cantidad + '"></td>' +
-                        '<td><input type="text" autocomplete="off" class="form-control text-right" name="precio_compra[]" id="precio_compra[]" value="' + precio_compra + '"></td>' +
-                        '<td><input type="text" autocomplete="off" class="form-control text-right" name="precio_venta[]" id="precio_venta[]" value="' + precio_venta + '"></td>' +
+                        '<td><input type="text" autocomplete="off" class="form-control text-right" name="precio_compra[]" id="precio_compra[]" value="' + precio_compra + '" onkeypress="return SoloDecimalesInputs(event,this);"></td>' +
+                        '<td><input type="text" autocomplete="off" class="form-control text-right" name="precio_venta[]" id="precio_venta[]" value="' + precio_venta + '" onkeypress="return SoloDecimalesInputs(event,this);"></td>' +
                         '<td><h5 class="text-right" name="subtotal" id="subtotal' + cont + '">' + subtotal + '</h5></td>' +
                         '<td><button type="button" onclick="modificarSubtotales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>'
                     '</tr>';
@@ -228,7 +229,8 @@ function modificarSubtotales(){
         var inpP = prec[i];
         var inpS = sub[i];
 
-        inpS.value = inpC.value * inpP.value;
+        var r = inpC.value * inpP.value;
+        inpS.value = parseFloat(Math.round(r * 100) / 100).toFixed(2);
 
         document.getElementsByName('subtotal')[i].innerHTML = inpS.value;
     }
@@ -240,7 +242,7 @@ function calcularTotales(){
     var total = 0.0;
     
     for (let i = 0; i < sub.length; i++) {
-        total += document.getElementsByName('subtotal')[i].value;        
+        total += parseFloat(document.getElementsByName('subtotal')[i].value);        
     }
 
     $('#total').html('S/. ' + total);

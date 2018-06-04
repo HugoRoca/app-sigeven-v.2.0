@@ -42,16 +42,22 @@ try{
             $total=0;
             $result = '';
             $result = '<thead style="background-color:#A9D0F5">
-                                        <th class="text-center">Artículo</th>
-                                        <th class="text-center">Cantidad</th>
-                                        <th class="text-center">Precio Compra</th>
-                                        <th class="text-center">Precio Venta</th>
-                                        <th class="text-center">Subtotal</th>
-                                    </thead>';
+                        <th class="text-center">Artículo</th>
+                        <th class="text-center">Cantidad</th>
+                        <th class="text-center">Precio Compra</th>
+                        <th class="text-center">Precio Venta</th>
+                        <th class="text-center">Subtotal</th>
+                    </thead>';
 
             while ($reg = $rspta->fetch_object()){
-                $result = $result . '<tr class="filas"><td>'.$reg->nombre.'</td><td class="text-center">'.$reg->cantidad.'</td><td class="text-right">'.$reg->precio_compra.'</td><td class="text-right">'.$reg->precio_venta.'</td><td class="text-right">'.$reg->precio_compra*$reg->cantidad.'</td></tr>';
-                $total=$total+($reg->precio_compra*$reg->cantidad);
+                $result = $result . '<tr class="filas">
+                                        <td>'.$reg->nombre.'</td>
+                                        <td class="text-center">'.$reg->cantidad.'</td>
+                                        <td class="text-right">'.$reg->precio_compra.'</td>
+                                        <td class="text-right">'.$reg->precio_venta.'</td>
+                                        <td class="text-right">'.$reg->precio_compra*$reg->cantidad.'</td>
+                                    </tr>';
+                $total = $total + ($reg->precio_compra * $reg->cantidad);
             }
 
             $result = $result . '<tfoot>
@@ -59,7 +65,7 @@ try{
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th><h4 id="total">S/.'.$total.'</h4></th> 
+                    <th><h4 id="totalMostar">S/.'.$total.'</h4></th> 
                 </tfoot>';
 
             echo $result;
