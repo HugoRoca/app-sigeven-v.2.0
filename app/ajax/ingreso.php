@@ -65,7 +65,7 @@ try{
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th><h4 id="totalMostar">S/.'.$total.'</h4></th> 
+                    <th class="text-right"><h4 id="totalMostar">S/.'.$total.'</h4></th> 
                 </tfoot>';
 
             echo $result;

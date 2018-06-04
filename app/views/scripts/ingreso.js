@@ -132,8 +132,7 @@ function guardarEditar(e) {
         contentType: false,
         processData: false,
         success: function(datos){
-            alert(datos);
-            //bootbox.alert(datos);
+            bootbox.alert(datos);
             mostrarForm(false);
             listar();
         }
@@ -192,12 +191,14 @@ function marcarImpuesto(){
     }else{
         $('#impuesto').val('0');
     }
+
+    $('#serie_comprobante').focus();
 }
 
 function agregarDetalle(idarticulo, articulo){
     var cantidad = 1;
-    var precio_compra = 1;
-    var precio_venta = 1;
+    var precio_compra = 0;
+    var precio_venta = 0;
 
     if(idarticulo != ''){
         var subtotal = cantidad * precio_compra;
@@ -205,7 +206,7 @@ function agregarDetalle(idarticulo, articulo){
                         '<td><button type="button" class="btn btn-danger btn-block" onclick="eliminarDetalle(' + cont + ')"><i class="fa fa-trash"></i></button></td>' +
                         '<td><input type="hidden" name="idarticulo[]" value="' + idarticulo + '">' + articulo + '</td>' +
                         '<td><input type="number" autocomplete="off" class="form-control text-center" name="cantidad[]" id="cantidad[]" value="' + cantidad + '"></td>' +
-                        '<td><input type="text" autocomplete="off" class="form-control text-right" name="precio_compra[]" id="precio_compra[]" value="' + precio_compra + '" onkeypress="return SoloDecimalesInputs(event,this);"></td>' +
+                        '<td><input type="text" autocomplete="off" class="form-control text-right" name="precio_compra[]" id="precio_compra[]" value="' + precio_compra + '" onkeyup="modificarSubtotales();" onkeypress="return SoloDecimalesInputs(event,this);"></td>' +
                         '<td><input type="text" autocomplete="off" class="form-control text-right" name="precio_venta[]" id="precio_venta[]" value="' + precio_venta + '" onkeypress="return SoloDecimalesInputs(event,this);"></td>' +
                         '<td><h5 class="text-right" name="subtotal" id="subtotal' + cont + '">' + subtotal + '</h5></td>' +
                         '<td><button type="button" onclick="modificarSubtotales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>'

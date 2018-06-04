@@ -173,7 +173,7 @@ if ($_SESSION["compras"] == 1) {
                                         <th></th>
                                         <th></th>
                                         <th></th>
-                                        <th><h4 id="total">S/. 0.00</h4><input type="hidden" name="total_compra" id="total_compra"></th>
+                                        <th class="text-right"><h4 id="total">S/. 0.00</h4><input type="hidden" name="total_compra" id="total_compra"></th>
                                     </tfoot>
                                     <tbody>
 
