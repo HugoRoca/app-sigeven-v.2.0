@@ -127,19 +127,25 @@ function mostrar(idingreso) {
         data= JSON.parse(data);
         mostrarForm(true);
 
-        $('#idcategoria').val(data.idcategoria);
-        $('#idcategoria').selectpicker('refresh');
-        $('#codigo').val(data.codigo);
-        $('#nombre').val(data.nombre);
-        $('#stock').val(data.stock);
-        $('#descripcion').val(data.descripcion);
-        $('#imagenmuestra').show();
-        $('#imagenmuestra').attr('src', '../Files/Articulos/' + data.imagen);
-        $('#imagenactual').val(data.imagen);
+        $('#idproveedor').val(data.idproveedor);
+        $('#idproveedor').selectpicker('refresh');
+        $('#tipo_comprobante').val(data.tipo_comprobante);
+        $('#tipo_comprobante').selectpicker('refresh');
+        $('#serie_comprobante').val(data.serie_comprobante);
+        $('#num_comprobante').val(data.num_comprobante);
+        $('#fecha_hora').val(data.fecha);
+        $('#impuesto').val(data.impuesto);
         $('#idingreso').val(data.idingreso);
 
-        generarBarCode();
+        $('#guardar').show();
+        $('#btnGuardar').hide();
+        $('#btnCancelar').show();
+        $('#btnAgregaArt').hide();
+    });
 
+    $.post('../ajax/ingreso.php?op=listarDetalle&id=' + idingreso, function(r){
+        $('#detalles').html(r);
+        console.log(r);
     });
 }
 
