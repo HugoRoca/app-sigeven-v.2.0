@@ -44,27 +44,25 @@ switch ($_GET["op"]){
 		$rspta = $venta->listarDetalle($id);
 		$total=0;
 		echo '<thead style="background-color:#A9D0F5">
-                                    <th>Opciones</th>
-                                    <th>Artículo</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio Venta</th>
-                                    <th>Descuento</th>
-                                    <th>Subtotal</th>
-                                </thead>';
+                <th>Artículo</th>
+                <th>Cantidad</th>
+                <th>Precio Venta</th>
+                <th>Descuento</th>
+                <th>Subtotal</th>
+            </thead>';
 
 		while ($reg = $rspta->fetch_object())
 				{
-					echo '<tr class="filas"><td></td><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->precio_venta.'</td><td>'.$reg->descuento.'</td><td>'.$reg->subtotal.'</td></tr>';
+					echo '<tr class="filas"><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->precio_venta.'</td><td>'.$reg->descuento.'</td><td>'.$reg->subtotal.'</td></tr>';
 					$total=$total+($reg->precio_venta*$reg->cantidad-$reg->descuento);
 				}
 		echo '<tfoot>
-                                    <th>TOTAL</th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th><h4 id="total">S/.'.$total.'</h4><input type="hidden" name="total_venta" id="total_venta"></th> 
-                                </tfoot>';
+                <th>TOTAL</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><h4 id="total">S/.'.$total.'</th> 
+            </tfoot>';
 	break;
 
 	case 'listar':

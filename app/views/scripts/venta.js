@@ -227,12 +227,12 @@ function agregarDetalle(idarticulo,articulo,precio_venta)
     {
     	var subtotal=cantidad*precio_venta;
     	var fila='<tr class="filas" id="fila'+cont+'">'+
-    	'<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle('+cont+')">X</button></td>'+
+    	'<td><button type="button" class="btn btn-danger btn-block" onclick="eliminarDetalle('+cont+')"><i class="fa fa-trash"></i></button></td>'+
     	'<td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td>'+
-    	'<td><input type="number" name="cantidad[]" id="cantidad[]" value="'+cantidad+'"></td>'+
-    	'<td><input type="number" name="precio_venta[]" id="precio_venta[]" value="'+precio_venta+'"></td>'+
-    	'<td><input type="number" name="descuento[]" value="'+descuento+'"></td>'+
-    	'<td><span name="subtotal" id="subtotal'+cont+'">'+subtotal+'</span></td>'+
+    	'<td><input type="number" class="form-control text-center" name="cantidad[]" id="cantidad[]" value="'+cantidad+'"></td>'+
+    	'<td><input type="text" class="form-control text-right" disabled name="precio_venta[]" id="precio_venta[]" value="'+precio_venta+'"></td>'+
+    	'<td><input type="text" class="form-control text-right" name="descuento[]" value="'+descuento+'"></td>'+
+    	'<td class="text-right"><h4 name="subtotal" id="subtotal'+cont+'">'+subtotal+'</h4></td>'+
     	'<td><button type="button" onclick="modificarSubototales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>'+
     	'</tr>';
     	cont++;
