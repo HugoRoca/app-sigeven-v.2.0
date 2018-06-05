@@ -45,7 +45,7 @@ Class Persona
 
     //Implementar para listar todos los registros
     public function listarC(){
-        $sql = "SELECT * FROM persona WHERE tipo_perosna='Cliente'";
+        $sql = "SELECT * FROM persona WHERE tipo_persona='Cliente'";
         return ejecutarConsulta($sql);
     }
 }
