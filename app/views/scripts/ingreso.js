@@ -264,6 +264,7 @@ function eliminarDetalle(indice){
     $('#fila' + indice).remove();
     calcularTotales();
     detalle = detalle - 1;
+    evaluar();
 }
 
 init();

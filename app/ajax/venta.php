@@ -61,7 +61,7 @@ switch ($_GET["op"]){
                 <th></th>
                 <th></th>
                 <th></th>
-                <th><h4 id="total">S/.'.$total.'</th> 
+                <th><h4>S/.'.$total.'</th> 
             </tfoot>';
 	break;
 
