@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-06-2018 a las 06:05:26
+-- Tiempo de generación: 06-06-2018 a las 06:12:38
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -39,15 +39,6 @@ CREATE TABLE `articulo` (
   `condicion` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `articulo`
---
-
-INSERT INTO `articulo` (`idarticulo`, `idcategoria`, `codigo`, `nombre`, `stock`, `descripcion`, `imagen`, `condicion`) VALUES
-(1, 8, '123456789', 'Poet chico', 111, '125ml', '1527442390.png', 1),
-(2, 8, '987654321', 'detergente sapolio', 71, 'probando', '1527442633.png', 1),
-(3, 8, '9876542111', 'detergente opal', 61, 'opal cristales con diamantes briellantes', '1527442687.jpg', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -60,14 +51,6 @@ CREATE TABLE `categoria` (
   `descripcion` varchar(256) DEFAULT NULL,
   `condicion` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `categoria`
---
-
-INSERT INTO `categoria` (`idcategoria`, `nombre`, `descripcion`, `condicion`) VALUES
-(7, 'Perfumes', 'Aromatizantes, ambientadores en general', 1),
-(8, 'Baño', 'Todo lo que tenga que ver el baño', 1);
 
 -- --------------------------------------------------------
 
@@ -88,24 +71,6 @@ CREATE TABLE `ingreso` (
   `estado` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `ingreso`
---
-
-INSERT INTO `ingreso` (`idingreso`, `idproveedor`, `idusuario`, `tipo_comprobante`, `serie_comprobante`, `num_comprobante`, `fecha_hora`, `impuesto`, `total_compra`, `estado`) VALUES
-(1, 2, 1, 'Boleta', '0001', '1', '2018-06-03 00:00:00', '0.00', '450.00', 'Aceptado'),
-(2, 2, 1, 'Boleta', '0001', '2', '2018-06-03 00:00:00', '0.00', '175.00', 'Aceptado'),
-(3, 2, 1, 'Boleta', '0001', '3', '2018-06-03 00:00:00', '0.00', '25.00', 'Aceptado'),
-(4, 2, 1, 'Factura', '0001', '4', '2018-06-03 00:00:00', '18.00', '12.00', 'Aceptado'),
-(5, 2, 1, 'Ticket', '0004', '1', '2018-06-03 00:00:00', '0.00', '93.00', 'Aceptado'),
-(6, 2, 1, 'Factura', '0101', '1', '2018-06-03 00:00:00', '18.00', '190.00', 'Aceptado'),
-(7, 2, 1, 'Factura', '123', '123', '2018-06-03 00:00:00', '18.00', '85.00', 'Aceptado'),
-(8, 2, 1, 'Ticket', '121', '122', '2018-06-03 00:00:00', '0.00', '150.00', 'Aceptado'),
-(9, 2, 1, 'Boleta', '22', '22', '2018-06-03 00:00:00', '0.00', '204.00', 'Aceptado'),
-(10, 2, 1, 'Boleta', '111', '111', '2018-06-03 00:00:00', '0.00', '169.00', 'Aceptado'),
-(11, 2, 1, 'Factura', 'ASD', '23', '2018-06-03 00:00:00', '18.00', '664.00', 'Aceptado'),
-(12, 2, 1, 'Factura', 'ASDAA', '23', '2018-06-03 00:00:00', '18.00', '233.00', 'Aceptado');
-
 -- --------------------------------------------------------
 
 --
@@ -120,41 +85,6 @@ CREATE TABLE `ingresodetalle` (
   `precio_compra` decimal(11,2) NOT NULL,
   `precio_venta` decimal(11,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `ingresodetalle`
---
-
-INSERT INTO `ingresodetalle` (`idingresodetalle`, `idingreso`, `idarticulo`, `cantidad`, `precio_compra`, `precio_venta`) VALUES
-(1, 1, 1, 10, '10.00', '15.00'),
-(2, 1, 2, 10, '20.00', '25.00'),
-(3, 1, 3, 15, '10.00', '15.00'),
-(4, 2, 3, 15, '5.00', '14.00'),
-(5, 2, 2, 20, '5.00', '14.00'),
-(6, 3, 3, 10, '1.00', '2.00'),
-(7, 3, 1, 10, '1.00', '2.00'),
-(8, 4, 1, 12, '1.00', '1.00'),
-(9, 5, 1, 18, '1.00', '2.00'),
-(10, 5, 2, 15, '2.00', '5.00'),
-(11, 5, 3, 9, '5.00', '6.00'),
-(12, 6, 2, 10, '5.00', '5.00'),
-(13, 6, 1, 10, '5.00', '5.00'),
-(14, 6, 3, 10, '9.00', '9.00'),
-(15, 7, 1, 12, '5.00', '5.00'),
-(16, 7, 2, 5, '5.00', '5.00'),
-(17, 8, 1, 10, '10.00', '10.00'),
-(18, 8, 2, 5, '5.00', '5.00'),
-(19, 8, 3, 5, '5.00', '5.00'),
-(20, 9, 1, 12, '12.00', '12.00'),
-(21, 9, 2, 12, '5.00', '5.00'),
-(22, 10, 2, 12, '12.00', '12.00'),
-(23, 10, 1, 5, '5.00', '5.00'),
-(24, 11, 3, 12, '12.00', '12.00'),
-(25, 11, 2, 10, '2.00', '2.00'),
-(26, 11, 1, 20, '25.00', '30.00'),
-(27, 12, 3, 15, '15.00', '15.00'),
-(28, 12, 2, 2, '2.00', '2.00'),
-(29, 12, 1, 2, '2.00', '2.00');
 
 --
 -- Disparadores `ingresodetalle`
@@ -208,20 +138,13 @@ CREATE TABLE `permisousuario` (
 --
 
 INSERT INTO `permisousuario` (`idpermisousuario`, `idusuario`, `idpermiso`) VALUES
-(1, 3, 1),
-(6, 4, 1),
-(7, 4, 2),
-(8, 4, 5),
-(9, 4, 7),
-(10, 4, 8),
-(13, 2, 6),
-(16, 1, 1),
-(17, 1, 2),
-(18, 1, 3),
-(19, 1, 4),
-(20, 1, 5),
-(21, 1, 6),
-(22, 1, 7);
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 4),
+(5, 1, 5),
+(6, 1, 6),
+(7, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -239,13 +162,6 @@ CREATE TABLE `persona` (
   `telefono` varchar(20) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `persona`
---
-
-INSERT INTO `persona` (`idpersona`, `tipo_persona`, `nombre`, `tipo_documento`, `num_documento`, `direccion`, `telefono`, `email`) VALUES
-(2, 'Proveedor', 'zoluxiones SAC', 'RUC', '20321654987', 'av el dervi, donde estan los caballitos', '20202020', 'admin@zoluxiones.com');
 
 -- --------------------------------------------------------
 
@@ -273,10 +189,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idusuario`, `nombre`, `tipo_documento`, `num_documento`, `direccion`, `telefono`, `email`, `cargo`, `login`, `clave`, `condicion`, `imagen`) VALUES
-(1, 'Administrador', 'DNI', '75424245', 'Mz D lt 7 San juan macias', '7814340', '', 'Analista programador', 'admin', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1, '1527651109.png'),
-(2, 'Daniel', 'DNI', '75424086', 'mz c lt 4 urb san remoII', '654', 'probando@hotmail.com', '', 'daniel.santos', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 1, '1527650898.png'),
-(3, 'jehidi chavez', 'DNI', '40210529', 'av ganbetta, sarita colonial', '', '', '', 'jchavez', '2a8610aefdd0028c6bf074dd18721c0ef8bc43241cc7a653d7aedf2036bdf6b3', 1, '1527652580.png'),
-(4, 'juan perez windoloro', 'DNI', '7412589', 'chorrillos av. cesar tello 123', '9876541', 'notiene@notiene.com', 'supervisor', 'jperez', 'ed92e4c7e54e3f4a29d8041ec93124bd3c1ec4825701cac42b3fffaf0bd7120a', 1, '1527652935.jpg');
+(1, 'Administrador', 'DNI', '75424245', 'Mz D lt 7 San juan macias', '7814340', '', 'Analista programador', 'admin', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1, '1527651109.png');
 
 -- --------------------------------------------------------
 
@@ -294,7 +207,7 @@ CREATE TABLE `venta` (
   `fecha_hora` datetime NOT NULL,
   `impuesto` decimal(4,2) NOT NULL,
   `total_venta` decimal(11,2) NOT NULL,
-  `estado` tinyint(4) NOT NULL DEFAULT '1'
+  `estado` varchar(10) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -305,12 +218,23 @@ CREATE TABLE `venta` (
 
 CREATE TABLE `ventadetalle` (
   `idventadetalle` int(11) NOT NULL,
-  `id_venta` int(11) NOT NULL,
+  `idventa` int(11) NOT NULL,
   `idarticulo` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
   `precio_venta` decimal(11,2) NOT NULL,
   `descuento` decimal(11,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Disparadores `ventadetalle`
+--
+DELIMITER $$
+CREATE TRIGGER `tr_updStockVenta` AFTER INSERT ON `ventadetalle` FOR EACH ROW BEGIN
+    	UPDATE articulo SET stock = stock - NEW.cantidad
+        WHERE articulo.idarticulo = NEW.idarticulo;
+	END
+$$
+DELIMITER ;
 
 --
 -- Índices para tablas volcadas
@@ -386,7 +310,7 @@ ALTER TABLE `venta`
 --
 ALTER TABLE `ventadetalle`
   ADD PRIMARY KEY (`idventadetalle`),
-  ADD KEY `fk_ventadetalle_venta_idx` (`id_venta`),
+  ADD KEY `fk_ventadetalle_venta_idx` (`idventa`),
   ADD KEY `fk_ventadetalle_idx` (`idarticulo`);
 
 --
@@ -397,25 +321,25 @@ ALTER TABLE `ventadetalle`
 -- AUTO_INCREMENT de la tabla `articulo`
 --
 ALTER TABLE `articulo`
-  MODIFY `idarticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idarticulo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ingreso`
 --
 ALTER TABLE `ingreso`
-  MODIFY `idingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idingreso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ingresodetalle`
 --
 ALTER TABLE `ingresodetalle`
-  MODIFY `idingresodetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `idingresodetalle` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `permiso`
@@ -427,13 +351,13 @@ ALTER TABLE `permiso`
 -- AUTO_INCREMENT de la tabla `permisousuario`
 --
 ALTER TABLE `permisousuario`
-  MODIFY `idpermisousuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `idpermisousuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -496,7 +420,7 @@ ALTER TABLE `venta`
 --
 ALTER TABLE `ventadetalle`
   ADD CONSTRAINT `fk_ventadetalle_articulo` FOREIGN KEY (`idarticulo`) REFERENCES `articulo` (`idarticulo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_ventadetalle_venta` FOREIGN KEY (`id_venta`) REFERENCES `venta` (`idventa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_ventadetalle_venta` FOREIGN KEY (`idventa`) REFERENCES `venta` (`idventa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
