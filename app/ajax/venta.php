@@ -53,7 +53,13 @@ switch ($_GET["op"]){
 
 		while ($reg = $rspta->fetch_object())
 				{
-					echo '<tr class="filas"><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->precio_venta.'</td><td>'.$reg->descuento.'</td><td>'.$reg->subtotal.'</td></tr>';
+					echo '<tr class="filas">
+							<td>'.$reg->nombre.'</td>
+							<td class="text-center">'.$reg->cantidad.'</td>
+							<td class="text-right">'.$reg->precio_venta.'</td>
+							<td class="text-right">'.$reg->descuento.'</td>
+							<td class="text-right">'.$reg->subtotal.'</td>
+						</tr>';
 					$total=$total+($reg->precio_venta*$reg->cantidad-$reg->descuento);
 				}
 		echo '<tfoot>
@@ -61,7 +67,7 @@ switch ($_GET["op"]){
                 <th></th>
                 <th></th>
                 <th></th>
-                <th><h4>S/.'.$total.'</th> 
+                <th class="text-right"><h4>S/.'.$total.'</th> 
             </tfoot>';
 	break;
 
@@ -107,6 +113,8 @@ switch ($_GET["op"]){
 		$persona = new Persona();
 
 		$rspta = $persona->listarC();
+
+		echo '<option value="">--Seleccione--</option>';
 
 		while ($reg = $rspta->fetch_object())
 				{
