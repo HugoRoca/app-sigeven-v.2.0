@@ -11,6 +11,15 @@ require 'header.php';
 
 if ($_SESSION["escritorio"] == 1) {
 
+    require_once '../models/Consultas.php';
+    $consulta = new Consultas();
+    $rsptac = $consulta->totalCompraHoy();
+    $regc = $rsptac->fetch_object();
+    $totalc = 'S/. ' . $regc->total_compra;
+
+    $rsptav = $consulta->totalVentaHoy();
+    $regv = $rsptav->fetch_object();
+    $totalv = 'S/. ' . $regv->total_venta;
 ?>
 <div class="content-wrapper">
     <section class="content-header">
@@ -33,7 +42,7 @@ if ($_SESSION["escritorio"] == 1) {
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="small-box bg-aqua">
                                 <div class="inner">
-                                    <h4 style="font-size: 17px;"><strong></strong></h4>
+                                    <h4 style="font-size: 17px;"><strong><?php echo $totalc; ?></strong></h4>
                                     <p>Compras</p>
                                 </div>
                                 <!--div class="icon"><i class="ion ion-bag"></i></div-->
@@ -45,7 +54,7 @@ if ($_SESSION["escritorio"] == 1) {
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="small-box bg-green">
                                 <div class="inner">
-                                    <h4 style="font-size: 17px;"><strong></strong></h4>
+                                    <h4 style="font-size: 17px;"><strong><?php echo $totalv; ?></strong></h4>
                                     <p>Ventas</p>
                                 </div>
                                 <!--div class="icon"><i class="ion ion-bag"></i></div-->
