@@ -8,7 +8,7 @@ $('#frmAcceso').on('submit', function (e) {
         'clavea': clavea
     }, function (data) {
         if (data != 'null') {
-            $(location).attr('href', 'categoria.php');
+            $(location).attr('href', 'escritorio.php');
         } else {
             bootbox.alert('Usuario y/o password incorrectos.');
         }
