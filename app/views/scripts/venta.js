@@ -211,7 +211,7 @@ function marcarImpuesto(){
 	$('#serie_comprobante').focus();
   }
 
-function agregarDetalle(idarticulo, articulo, precio_venta){
+function agregarDetalle(idarticulo, articulo, precio_venta, _cantidad){
 	var cantidad=1;
 	var descuento=0;
 
@@ -220,9 +220,9 @@ function agregarDetalle(idarticulo, articulo, precio_venta){
 		var fila = '<tr class="filas" id="fila'+cont+'">'+
 					'<td><button type="button" class="btn btn-danger btn-block" onclick="eliminarDetalle('+cont+')"><i class="fa fa-trash"></i></button></td>'+
 					'<td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td>'+
-					'<td><input type="number" class="form-control text-center" name="cantidad[]" id="cantidad[]" value="'+cantidad+'" onkeyup="modificarSubtotales();"></td>'+
-					'<td><input type="text" class="form-control text-right" name="precio_venta[]" id="precio_venta[]" value="'+precio_venta+'"></td>'+
-					'<td><input type="text" class="form-control text-right" name="descuento[]" value="'+descuento+'"></td>'+
+					'<td><input type="text" class="form-control text-center" name="cantidad[]" id="cantidad[]" value="'+cantidad+'" onkeyUp="return ValStockNumero(	this, '+_cantidad+')"></td>'+
+					'<td><input type="text" class="form-control text-right" name="precio_venta[]" id="precio_venta[]" value="'+precio_venta+'" onkeypress="return SoloDecimalesInputs(event,this);"></td>'+
+					'<td><input type="text" class="form-control text-right" name="descuento[]" value="'+descuento+'" onkeypress="return SoloDecimalesInputs(event,this);"></td>'+
 					'<td class="text-right"><h4 name="subtotal" id="subtotal' + cont + '">' + subtotal + '</h4></td>'+
 					'<td><button type="button" onclick="modificarSubtotales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>'+
 				'</tr>';

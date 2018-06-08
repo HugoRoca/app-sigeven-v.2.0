@@ -83,3 +83,18 @@ function filter(__val__){
     }
     
 }
+
+function Solo_NumericoStock(variable, stock){
+    Numer=parseInt(variable);
+    if (isNaN(Numer)){
+        return "";
+    }
+    if (variable > stock){ 
+        alert('La cantidad permitida es de ' + stock);
+        return stock;
+    }
+    return Numer;
+}
+function ValStockNumero(Control, stock){
+    Control.value=Solo_NumericoStock(Control.value, stock);
+}
