@@ -77,7 +77,8 @@ else{
     require 'footer.php';
 ?>
 
-<script src="scripts/categoria.js"></script>
+<script src="../assets/js/chart.min.js"></script>
+<script src="../assets/js/chart.bundle.min.js"></script>
 <?php
 }
 
