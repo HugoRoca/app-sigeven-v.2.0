@@ -97,4 +97,7 @@ function Solo_NumericoStock(variable, stock){
 }
 function ValStockNumero(Control, stock){
     Control.value=Solo_NumericoStock(Control.value, stock);
+    if (Control.value != "") {
+        modificarSubtotales();
+    }
 }
