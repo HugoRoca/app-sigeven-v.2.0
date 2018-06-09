@@ -147,7 +147,7 @@ function addSociete( $nom, $adresse,$logo,$ext_logo )
 	$this->SetXY( $x1, $y1 + 4 );
 	$this->SetFont('Arial','',10);
 	$length = $this->GetStringWidth( $adresse );
-	//Coordonnées de la société
+	//Coordonnï¿½es de la sociï¿½tï¿½
 	$lignes = $this->sizeOfText( $adresse, $length) ;
 	$this->MultiCell($length, 4, $adresse);
 }
@@ -320,7 +320,7 @@ function addNumTVA($tva)
 	$this->RoundedRect($r1, $y1, ($r2 - $r1), ($y2-$y1), 2.5, 'D');
 	$this->Line( $r1, $mid, $r2, $mid);
 	$this->SetXY( $r1 + 16 , $y1+1 );
-	$this->Cell(40, 4, "DIRECCIÓN", '', '', "C");
+	$this->Cell(40, 4, "DIRECCIï¿½N", '', '', "C");
 	$this->SetFont( "Arial", "", 10);
 	$this->SetXY( $r1 + 16 , $y1+5 );
 	$this->Cell(40, 5, $tva, '', '', "C");
@@ -329,13 +329,13 @@ function addNumTVA($tva)
 function addReference($ref)
 {
 	$this->SetFont( "Arial", "", 10);
-	$length = $this->GetStringWidth( "Références : " . $ref );
+	$length = $this->GetStringWidth( "Rï¿½fï¿½rences : " . $ref );
 	$r1  = 10;
 	$r2  = $r1 + $length;
 	$y1  = 92;
 	$y2  = $y1+5;
 	$this->SetXY( $r1 , $y1 );
-	$this->Cell($length,4, "Références : " . $ref);
+	$this->Cell($length,4, "Rï¿½fï¿½rences : " . $ref);
 }
 
 function addCols( $tab )
