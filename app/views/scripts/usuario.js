@@ -119,6 +119,7 @@ function mostrar(idusuario) {
         $("#imagenmuestra").attr('src', '../Files/Usuarios/' + data.imagen);
         $('#imagenactual').val(data.imagen);
         $('#idusuario').val(data.idusuario);
+        $('#spanPass').show();
     });
 
     $.post('../ajax/usuario.php?op=permisos&id=' + idusuario, function(r){

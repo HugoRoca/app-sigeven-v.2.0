@@ -101,6 +101,7 @@ if ($_SESSION["acceso"] == 1) {
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>clave(*):</label>
                                 <input type="password" class="form-control" name="clave" id="clave" maxlength="20" placeholder="Clave" autocomplete="off" required>
+                                <span id="spanPass" style="color: red; display: none;">*Debe de volver a escribir la contraseña</span>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Permisos:</label>

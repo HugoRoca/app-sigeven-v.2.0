@@ -85,7 +85,7 @@ Class Usuario
 
     //Implemenar un método para listos los permisos marcados
     public function listarMarcados($idusuario){
-        $sql = "SELECT * FROM permisousuario WHERE idusuario = $idusuario";
+        $sql = "SELECT * FROM permisousuario WHERE idusuario = '$idusuario'";
         return ejecutarConsulta($sql);
     }
 
