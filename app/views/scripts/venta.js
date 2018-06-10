@@ -47,7 +47,8 @@ function mostrarform(flag){
 	limpiar();
 	if (flag)
 	{
-		$("#serie_comprobante").val("00001");
+		$('#serie_comprobante').val('BOL001');
+		$('#serie_comprobante').prop('disabled', true);
 		$("#num_comprobante").focus();
 		$("#listadoregistros").hide();
 		$("#formularioregistros").show();
@@ -208,7 +209,11 @@ function marcarImpuesto(){
         $("#impuesto").val("0"); 
 	}
 
-	$('#serie_comprobante').focus();
+	if (tipo_comprobante == 'Factura') { $('#serie_comprobante').val('FAC001');}
+	if (tipo_comprobante == 'Boleta') { $('#serie_comprobante').val('BOL001');}
+	if (tipo_comprobante == 'Ticket') { $('#serie_comprobante').val('TCK001');}
+
+	$('#num_comprobante').focus();
   }
 
 function agregarDetalle(idarticulo, articulo, precio_venta, _cantidad){

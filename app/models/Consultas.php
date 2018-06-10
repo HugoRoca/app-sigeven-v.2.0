@@ -50,7 +50,7 @@ Class Consultas
     }
 
     public function comprasUltimos_10Dias(){
-        $sql = "SELECT CONCAT(DAY(fecha_hora),'-',MONTH(fecha_hora)) as fecha, 
+        $sql = "SELECT CONCAT(IF(DAY(fecha_hora) < 10, CONCAT('0', DAY(fecha_hora)) , DAY(fecha_hora)),'/',IF(MONTH(fecha_hora) < 10, CONCAT('0', MONTH(fecha_hora)), MONTH(fecha_hora))) as fecha, 
                     SUM(total_compra) as total
                 FROM ingreso
                 GROUP BY fecha_hora 
