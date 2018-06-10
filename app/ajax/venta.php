@@ -77,11 +77,12 @@ switch ($_GET["op"]){
  		$data= Array();
 
  		while ($reg=$rspta->fetch_object()){
- 			if($reg->tipo_comprobante=='Ticket'){
- 				$url='../reportes/exTicket.php?id=';
+			 
+ 			if($reg->tipo_comprobante == 'Ticket'){
+ 				$url='../reports/rptTicket.php?id=';
  			}
  			else{
- 				$url='../reportes/exFactura.php?id=';
+ 				$url='../reports/rptFactura.php?id=';
  			}
 
  			$data[]=array(
