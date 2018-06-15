@@ -33,22 +33,22 @@ Sistema para el contol de ventas e ingreso de stock, impresion de facturas, bole
 #### Registro de categoría
 ![articulos](https://image.ibb.co/hz0piT/3_articulos.pn)
 
-## COMPRAS
-### Registro de ingresos
-### Registro de proveedor
+### COMPRAS
+#### Registro de ingresos
+#### Registro de proveedor
 
-## VENTAS
-### Registro de clientes
-### Registros de ventas
-### Impresion de PDF
-#### Factura
-#### Boleta
-#### Ticket
+### VENTAS
+#### Registro de clientes
+#### Registros de ventas
+#### Impresion de PDF
+##### Factura
+##### Boleta
+##### Ticket
 
-## ACCESO
-### Permisos
-### Registro de usuario
+### ACCESO
+#### Permisos
+#### Registro de usuario
 
-## CONSULTA DE COMPRAS
+### CONSULTA DE COMPRAS
 
-## CONSULTA DE VENTAS
+### CONSULTA DE VENTAS
