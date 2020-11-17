@@ -1,6 +1,6 @@
 <?php
 
-require_once '../models/Persona.php';
+require_once('../models/Persona.php');
 
 $persona = new Persona();
 

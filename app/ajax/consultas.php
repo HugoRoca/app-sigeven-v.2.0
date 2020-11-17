@@ -1,6 +1,6 @@
 <?php
 
-require_once '../models/Consultas.php';
+require_once('../models/Consultas.php');
 
 $consulta = new Consultas();
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once '../models/Ingreso.php';
+require_once('../models/Ingreso.php');
 
 if (strlen(session_id()) < 1) {
     session_start();

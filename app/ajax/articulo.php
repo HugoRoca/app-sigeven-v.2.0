@@ -1,6 +1,6 @@
 <?php
 
-require_once '../models/Articulo.php';
+require_once('../models/Articulo.php');
 
 $articulo = new Articulo();
 

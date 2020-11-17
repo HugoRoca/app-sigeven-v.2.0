@@ -1,6 +1,6 @@
 <?php
 
-require_once '../models/Permiso.php';
+require_once('../models/Permiso.php');
 
 $permiso = new Permiso();
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once "global.php";
+require_once __DIR__."/global.php";
 
 $conexion = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
